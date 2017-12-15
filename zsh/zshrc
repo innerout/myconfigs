@@ -99,3 +99,4 @@ xset b 0 0 0
 export RANGER_LOAD_DEFAULT_RC= "FALSE"
 alias weather="curl wttr.in/Heraklion"
 alias settings="gnome-control-center"
+alias open="xdg-open"
