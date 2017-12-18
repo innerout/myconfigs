@@ -90,7 +90,7 @@ alias wget="hget" #https://github.com/huydx/hget
 alias shutdown="shutdown now"
 
 if [ -f ~/.dir_colors/dircolors ]
-then eval `dircolors ~/.dir_colors/dircolors`
+	then eval `dircolors ~/.dir_colors/dircolors`
 fi
 #export DRI_PRIME=1
 xset b off
