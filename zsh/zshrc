@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias csd="ssh -oHostKeyAlgorithms=+ssh-dss csd3556@gate2.csd.uoc.gr"
-alias wget="hget"
+alias wget="hget" #https://github.com/huydx/hget 
 alias shutdown="shutdown now"
 
 if [ -f ~/.dir_colors/dircolors ]
