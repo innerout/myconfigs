@@ -181,3 +181,4 @@ exec --no-startup-id feh --bg-scale /home/hacker/Downloads/Desktop.jpg
 exec_always "setxkbmap -option grp:alt_shift_toggle us,el"
 exec --no-startup-id xbacklight -set 50
 exec --no-startup-id numlockx on
+exec_always --no-startup-id killall orca
