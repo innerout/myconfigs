@@ -1,1 +1,1 @@
-When trying to debug with gdb compile using -g add --ggdb3.
+When trying to debug with gdb compile using -g and --ggdb3.
