@@ -7,7 +7,6 @@
 ;
 ;=====================================================
 ; Goes to ~/.config/polybar/config
-
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
