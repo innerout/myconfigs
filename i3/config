@@ -25,7 +25,7 @@ font pango:monospace 8
 # clear in small sizes. However, its unicode glyph coverage is limited, the old
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
-
+# Goes to ~/.config/i3/config
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -169,17 +169,16 @@ bar {
         status_command i3status
         position top
         font xft:Cousine , FontAwesome 12
-
 }
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
-#exec --no-startup-id setxkbmap us,gr -option 'grp:alt_shift_toggle'
 exec --no-startup-id feh --bg-scale /home/hacker/Downloads/Galaxy.jpg
-#exec_always --no-startup-id "setxkbmap -option grp:alt_shift_toggle us,el"
 exec --no-startup-id xbacklight -set 50
 exec --no-startup-id numlockx on
+exec --no-startup-id redshift
+exec --no-startup-id ibus-daemon
 exec_always --no-startup-id killall orca
-exec_always --no-startup-id redshift
+
