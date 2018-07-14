@@ -1,0 +1,4 @@
+git+https://github.com/Sarcasm/compdb.git#egg=compdb
+python-language-server[all]
+pyls-mypy
+pyls-isort
