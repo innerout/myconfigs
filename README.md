@@ -1,2 +1,2 @@
 # myconfigs
-My configs on different programs in the system
+My configs on different programs in Arch Linux
