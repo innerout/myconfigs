@@ -26,7 +26,6 @@ binutils
 bison
 boost
 brasero
-bspwm
 bzip2
 cairo
 ccat
@@ -61,6 +60,7 @@ evince
 evolution
 exa
 fakeroot
+fd
 feh
 file
 file-roller
@@ -75,6 +75,7 @@ fonts-meta-base
 fonts-meta-extended-lt
 four-in-a-row
 freetype2
+fzf
 gawk
 gcc
 gdb
@@ -408,6 +409,7 @@ traceroute
 tracker
 transmission-gtk
 trash-cli
+tree
 trizen
 ttf-bitstream-vera
 ttf-freefont
