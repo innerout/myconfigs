@@ -51,7 +51,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git extract sudo zsh-autosuggestions autojump fzf)
+plugins=(git extract sudo zsh-autosuggestions autojump)
 
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -83,7 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias csd="ssh csd3556@milo.csd.uoc.gr"
-alias wget="hget" #https://github.com/huydx/hget
+#alias wget="hget" #https://github.com/huydx/hget
 alias shutdown="shutdown now"
 
 if [ -f ~/.dir_colors/dircolors ]
@@ -99,15 +99,15 @@ alias open="xdg-open"
 export EDITOR='emacs'
 alias indent="indent -linux"
 alias myip="curl ipinfo.io/ip"
-alias ls="/opt/coreutils/bin/ls"
+alias ls="/opt/coreutils/bin/ls --color"
 alias kill="fkill"
 alias cat="ccat"
 alias find="fd --hidden"
-#If i want check what takes space in a folder just run ncdu
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-
-
+export ZSH_AUTOSUGGEST_USE_ASYNC="TRUE"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+#If i want to check what takes space in a folder just run ncdu
+export PATH=$PATH:/home/hacker/.local/bin/
+# added by pipx (https://github.com/pipxproject/pipx)
+export PATH="/home/hacker/.local/bin:$PATH"
+#to upload files in terminal
+#curl --upload-file ./test.mp3 https://transfer.sh/test.mp3
