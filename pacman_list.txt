@@ -77,7 +77,6 @@ fonts-meta-base
 fonts-meta-extended-lt
 four-in-a-row
 freetype2
-fzf
 gawk
 gcc
 gdb
@@ -277,6 +276,7 @@ os-prober
 otf-font-awesome
 otf-overpass
 p7zip
+paccache-hook
 pacman
 pacman-contrib
 pandoc
@@ -498,4 +498,5 @@ yakuake
 yelp
 zeal
 zsh
+zsh-autosuggestions
 zsh-syntax-highlighting

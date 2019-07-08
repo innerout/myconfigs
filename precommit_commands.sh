@@ -1,4 +1,5 @@
 #!/bin/bash
 
-pacman -Qqe > packages_list.txt
+pacman -Qqe > pacman_list.txt
 
+pacman -Qqm > trizen_list.txt
