@@ -173,19 +173,22 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
-        position top
-        font xft:Cousine , FontAwesome 12
+	status_command i3status
+	position top
+	font xft:Cousine , FontAwesome 12
+	tray_output primary
 }
+
 exec --no-startup-id gnome-flashback
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-exec --no-startup-id feh --bg-scale /home/hacker/Downloads/Galaxy.jpg
+#exec --no-startup-id nm-applet
+#exec --no-startup-id volumeicon
+exec --no-startup-id feh --bg-fill /home/gxanth/Downloads/Bridges_Coast_Evening_USA_Golden_Gate_Bridge_San_531263_1920x1080.jpg --bg-fill /home/gxanth/Downloads/WaterFall1050.jpg --bg-fill /home/gxanth/Downloads/Waterfall-Aerial-Wallpaper-1680x1050.jpg
+#exec --no-startup-id feh --bg-scale /home/hacker/Downloads/Galaxy.jpg
 exec --no-startup-id xbacklight -set 50
 exec --no-startup-id numlockx on
-exec --no-startup-id redshift -l 35.338734:25.144213
+#exec --no-startup-id redshift -l 35.338734:25.144213
 exec --no-startup-id ibus-daemon
 exec_always --no-startup-id killall orca
