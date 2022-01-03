@@ -1,3 +1,26 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n] confirmations, etc.) must
+# go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+function vterm_printf(){
+    if [ -n "$TMUX" ]; then
+        # tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+
 # If you come from bash you might have to change your $PATH.
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -6,7 +29,8 @@ export GOPATH=$HOME/go
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="ys"
+#ZSH_THEME="ys"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,9 +75,10 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(git extract sudo zsh-autosuggestions autojump)
-
+plugins=(git extract sudo zsh-autosuggestions autojump last-working-dir)
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/alias-tips/alias-tips.plugin.zsh
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -82,32 +107,55 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias csd="ssh csd3556@milo.csd.uoc.gr"
-#alias wget="hget" #https://github.com/huydx/hget
-alias shutdown="shutdown now"
 
-if [ -f ~/.dir_colors/dircolors ]
-	then eval `dircolors ~/.dir_colors/dircolors`
-fi
-
-xset b off #turn of xorg beep
-xset b 0 0 0 #Like the above
-
-alias weather="curl wttr.in/Heraklion"
-alias settings="gnome-control-center"
-alias open="xdg-open"
-export EDITOR='emacs'
-alias indent="indent -linux"
-alias myip="curl ipinfo.io/ip"
-alias ls="/opt/coreutils/bin/ls --color"
-alias kill="fkill"
-alias cat="ccat"
-alias find="fd --hidden"
+export PATH=$PATH:~/.emacs.d/bin/
 export ZSH_AUTOSUGGEST_USE_ASYNC="TRUE"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
+export PATH=/home/gxanth/.cargo/bin:$PATH
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export EDITOR='emacs'
+export PATH=/opt/draw.io:$PATH
+
+# HSTR configuration - add this to ~/.zshrc
+alias hh=hstr                    # hh to be alias for hstr
+setopt histignorespace           # skip cmds w/ leading space from history
+export HSTR_CONFIG=hicolor       # get more colors
+bindkey -s "\C-r" "\C-a hstr -- \C-j"     # bind hstr to Ctrl-r (for Vi mode check doc)
+
+alias csd="ssh gxanth@milo.csd.uoc.gr"
+alias shutdown="shutdown now"
+alias pinet="wine /home/gxanth/.wine/dosdevices/c:/users/gxanth/Local\ Settings/Application\ Data/Programs/pi-network-desktop/Pi\ Network.exe"
+xset b off #turn of xorg beep
+xset b 0 0 0 #Like the above
+alias weather="curl wttr.in/Heraklion"
+alias sw="i3-swallow"
+alias settings="gnome-control-center"
+alias open="xdg-open"
+alias ek="emacsclient -e '(kill-emacs)'"
+alias myip="curl ipinfo.io/ip"
+#alias ls="~/go/bin/ls-go -n"
+alias kill="fkill"
+alias find="fd --hidden"
+alias mfs="sshfs gxanth@work: ~/remote/ -oauto_cache,reconnect,no_readahead"
+alias ufs="fusermount3 -u ~/remote"
+alias ip="ip -color=always"
+source "/home/gxanth/.local/share/lscolors.sh"
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+
+if [[ "$TERM" == "dumb" ]]; then
+    unset zle_bracketed_paste
+    unset zle
+    PS1='$ '
+    return
+fi
+
 #If i want to check what takes space in a folder just run ncdu
-export PATH=$PATH:/home/hacker/.local/bin/
-# added by pipx (https://github.com/pipxproject/pipx)
-export PATH="/home/hacker/.local/bin:$PATH"
 #to upload files in terminal
 #curl --upload-file ./test.mp3 https://transfer.sh/test.mp3
+
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+source /usr/share/nvm/init-nvm.sh

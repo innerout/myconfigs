@@ -17,7 +17,7 @@ font pango:monospace 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
 bindsym Control+Mod1+T exec gnome-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -97,13 +97,14 @@ set $ws2 2:
 set $ws3 3:
 set $ws4 4:
 set $ws5 5:
+set $ws6 6:
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -115,7 +116,7 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -124,22 +125,24 @@ bindsym $mod+Shift+0 move container to workspace 10
 #xprop
 assign [class="Google-chrome"]		$ws2
 assign [class="Firefox"]		$ws2
-assign [class="Emacs"]			$ws3
+#assign [class="Emacs"]			$ws3
 assign [class="Thunderbird"]		$ws4
 assign [class="Mattermost"]		$ws5
-
+assign [class="Spotify"]		$ws6
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym XF86Launch8 exec /home/gxanth/.emacs_anywhere/bin/run
+bindsym $mod+x [urgent=latest] focus
 
 bindsym XF86MonBrightnessUp exec xbacklight +5
 bindsym XF86MonBrightnessDown exec xbacklight -5
 bindsym $mod+Shift+V exec i3lock -i /home/hacker/Downloads/i3lockimage.png -n
 bindsym --release Print exec scrot -s
-bindsym $mod+Insert exec /home/hacker/scripts/change_language.sh
+bindsym $mod+Insert exec /home/gxanth/scripts/change_language.sh
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
@@ -179,16 +182,15 @@ bar {
 	tray_output primary
 }
 
-exec --no-startup-id gnome-flashback
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id gnome-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+exec --no-startup-id gnome-flashback
+exec --no-startup-id picom -b
 #exec --no-startup-id nm-applet
 #exec --no-startup-id volumeicon
-exec --no-startup-id feh --bg-fill /home/gxanth/Downloads/Bridges_Coast_Evening_USA_Golden_Gate_Bridge_San_531263_1920x1080.jpg --bg-fill /home/gxanth/Downloads/WaterFall1050.jpg --bg-fill /home/gxanth/Downloads/Waterfall-Aerial-Wallpaper-1680x1050.jpg
-#exec --no-startup-id feh --bg-scale /home/hacker/Downloads/Galaxy.jpg
-exec --no-startup-id xbacklight -set 50
+#exec --no-startup-id xbacklight -set 50
 exec --no-startup-id numlockx on
 #exec --no-startup-id redshift -l 35.338734:25.144213
-exec --no-startup-id ibus-daemon
-exec_always --no-startup-id killall orca
+#exec --no-startup-id ibus-daemon
+#exec_always --no-startup-id killall orca
