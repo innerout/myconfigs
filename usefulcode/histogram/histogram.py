@@ -18,8 +18,8 @@ font = {'family': 'normal',
 plt.rc('font', **font)
 
 # file format should be a number in each line
-path_1 = '/home/hacker/concurrent implementation/dmapwithdoublebuff/numbers'
-path_2 = '/home/hacker/concurrent implementation/dmapwithdoublebuff/numbers1'
+path_1 = 'numbers'
+path_2 = 'numbers1'
 
 
 results_file_arm = open(path_1, 'r')
