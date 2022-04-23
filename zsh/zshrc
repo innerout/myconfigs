@@ -117,6 +117,7 @@ alias myip="curl ipinfo.io/ip"
 alias kill="fkill"
 alias find="fd --hidden"
 alias ip="ip -color=always"
+alias ls="lsd"
 source "~/.lscolors.sh"
 
 #If i want to check what takes space in a folder just run ncdu
