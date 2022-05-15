@@ -119,6 +119,7 @@ alias find="fd --hidden"
 alias ip="ip -color=always"
 alias ls="lsd"
 source "~/.lscolors.sh"
+alias rm="trash"
 
 #If i want to check what takes space in a folder just run ncdu
 #to upload files in terminal
