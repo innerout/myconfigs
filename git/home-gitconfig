@@ -11,7 +11,7 @@
 	file-style = bold yellow ul
 	file-decoration-style = none
 [commit]
-	template = /home/gxanth/.git-commit-template
+	template = ~/.git-commit-template
 	gpgsign = true
 [color "status"]
 	header = green normal
@@ -22,12 +22,21 @@
 	branch = magenta normal bold
 	nobranch = normal normal bold
 	unmerged = red normal bold
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 [user]
 	signingkey = 41DF4D92B11E1073
 	email = kompiouterakias@hotmail.com
 	name = George Xanthakis
 [pull]
 	rebase = true
+[push]
+	default = current
 [fetch]
 	prune = true
 [diff]
