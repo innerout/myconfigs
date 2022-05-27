@@ -118,13 +118,12 @@ alias kill="fkill"
 alias find="fd --hidden"
 alias ip="ip -color=always"
 alias ls="lsd"
-source "~/.lscolors.sh"
 alias rm="trash"
+. /usr/share/LS_COLORS/dircolors.sh
 
 #If i want to check what takes space in a folder just run ncdu
 #to upload files in terminal
 #curl --upload-file ./test.mp3 https://transfer.sh/test.mp3
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
