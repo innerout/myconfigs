@@ -96,7 +96,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 path+=~/.emacs.d/bin
-path+=~/.cargo/bin
 export ZSH_AUTOSUGGEST_USE_ASYNC="TRUE"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=3"
 export EDITOR='emacs'
@@ -118,8 +117,11 @@ alias kill="fkill"
 alias find="fd --hidden"
 alias ip="ip -color=always"
 alias ls="lsd"
-alias rm="trash"
+alias rm="trash -v"
 . /usr/share/LS_COLORS/dircolors.sh
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000
+export SAVEHIST=1000000000
 
 #If i want to check what takes space in a folder just run ncdu
 #to upload files in terminal
