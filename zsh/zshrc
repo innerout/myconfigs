@@ -65,6 +65,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Add wisely, as too many plugins slow down shell startup.
 
 plugins=(git extract sudo zsh-autosuggestions autojump last-working-dir alias-tips)
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 # User configuration
 
@@ -118,6 +119,8 @@ alias find="fd --hidden"
 alias ip="ip -color=always"
 alias ls="lsd"
 alias rm="trash -v"
+alias dragfile="dragon-drop"
+
 . /usr/share/LS_COLORS/dircolors.sh
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000
