@@ -130,6 +130,7 @@ alias ip="ip -color=always"
 alias ls="lsd -A"
 alias rm="trash -v"
 alias dragfile="dragon-drop"
+alias cwdsudo="sudo -Es"
 
 . /usr/share/LS_COLORS/dircolors.sh
 export HISTFILESIZE=1000000000

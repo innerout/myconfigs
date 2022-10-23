@@ -1,22 +1,16 @@
 echo "Sudo access needed for Package manager configs!!!"
 #Package manager configuration
-sudo cp zsh/makepkg.conf /etc/makepkg.conf
-sudo cp zsh/pacman.conf /etc/pacman.conf
+sudo cp arch/makepkg.conf /etc/makepkg.conf
+sudo cp arch/pacman.conf /etc/pacman.conf
 
 if [ ! -d ~/.config ]; then
-	mkdir ~/.config
-	mkdir ~/.config/i3
-	mkdir ~/.config/alacritty
-	mkdir ~/.config/kitty
-fi
-
-if [ ! -d ~/.dir_colors ]; then
-	mkdir ~/.dir_colors
+	mkdir -p ~/.config/i3
+	mkdir -p ~/.config/alacritty
+	mkdir -p ~/.config/kitty
 fi
 
 ./i3/install.sh
-cp zsh/zshrc ~/.zshrc
-cp zsh/dircolors ~/.dir_colors/
+cp zsh/z4human/.p10k.zsh zsh/z4human/.zshenv zsh/z4human/.zshrc ~/
 cp i3/config ~/.config/i3/config
 cp terminal/alacritty/* ~/.config/alacritty/
 cp terminal/kitty/* ~/.config/kitty/
