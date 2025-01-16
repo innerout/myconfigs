@@ -44,3 +44,5 @@
 	algorithm = patience
 [includeIf "gitdir:~/gitfolders/ics-forth/"]
 	path = "~/gitfolders/ics-forth/.gitconfig"
+[rebase]
+	autoStash = true
